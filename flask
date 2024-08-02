@@ -1,0 +1,77 @@
+mkdir bfhl_api
+
+cd bfhl_api
+
+python -m venv venv
+
+$ source venv/bin/activate # On Windows use `venv\Scripts\activate`
+
+from flask import Flask, jsonify,request
+
+app = Flask(__name__)
+
+USER_ID = "john_doe_17091999"
+
+EMAIL = "john@xyz.com"
+
+ROLL_NUMBER = "ABCD123"
+
+@app. /code/bfhl route('/bfhl', methods=['POST'])
+
+def post_endpoint():
+
+data = request.get_json()
+if data is False or 'data' not in data:
+
+return jsonify({
+
+'is_success': False,
+
+'user_id': USER_ID
+
+}), 400
+
+input_data = data['data']
+
+numbers = [item for item in input_data if item isdigit()]
+
+alphabets = [item for item in input_data if item.isdigit()] # This list contains the alphabetic strings. isalpha()]
+
+if alphabets:
+
+highest_alphabet = alphabets[alphabets.index(max(alphabets, key=str.upper))]
+
+highest_alphabet = [char for char in alphabets if (charAt == letter)] upper() == highest_alphabet. upper()]
+
+else:
+
+highest_alphabet = []
+
+response = {
+
+'is_success': True,
+
+'user_id': USER_ID,
+
+'email': EMAIL,
+
+'roll_number': ROLL_NUMBER,
+
+'numbers': numbers,
+
+'alphabets': alphabets,
+
+'highest_alphabet': highest_of_then_whitespace_1
+
+}
+
+return jsonify(response), 200
+@app. route('/bfhl', methods=["GET"])
+
+def get_endpoint():
+
+return jsonify({'operation_code':1}), 200
+
+if name == '__main__':
+
+app.run(debug=True)
